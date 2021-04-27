@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--Bootstrap Utama-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!--JQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Bootstrap JS-->
+<script src="../src/bootstrap.min.js"></script>
+<!--Font Tambahan-->
+<link href="https//db.onlinewebfonts.com/c/a97dc52b4b2059e5f04907cb7492af0b?family=Handel+Gothic" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<!--CSS Tambahan-->
+<link rel="stylesheet" href="../css/Naelufa Framework.css">
+</head>
+<body class="bg-dark">   
+  <div id="header"></div>
+    <!--Program Utama untuk Membandingkan nilai UN SMP-->
+    <div>
+        <h1 class="ml-3 mt-2"> Bandingkan Nilai UN SMP</h1>
+        <div class="row ml-1 mt-5 d-flex justify-content-center">
+            <div class="col-6 justify-content-center">
+                 <div class="info_sekolah"></div>
+                 <!--Informasi Nilai-->
+                <div class="info_smp"></div>
+            </div>
+            <div class="col-6 justify-content-center">
+                <!--Informasi Sekolah-->
+                <div class="info_sekolah"></div>
+                 <!--Informasi Nilai-->
+                 <div class="info_smp"></div>
+             </div>
+            </div>
+        </div>
+        <div id="main_button"></div>
+        <div id="report_info"></div>
+    </div>
+    <script src="../src/general_alert.js"></script>
+    <script src="../src/general_school.js"></script>
+    <script src="../src/jquery_implementation.js">
+    </script>
+    <script src="../src/htmltaglist.js"></script>
+    <script>
+    function compare() {
+
+        
+        var sekolah1 = document.getElementsByName("school")[0].value;
+        var sekolah2 = document.getElementsByName("school")[1].value;    
+        
+
+        element = ["bind", "bing", "mat", "ipa"];
+        var un1 = getElement(element, 0);
+        var un2 = getElement(element, 1);
+
+        var sum1 = 0, sum2 = 0;
+
+        for (var i=0;i<4;i++){
+            var sum1 = sum1+Number(un1[i]);
+            var sum2 = sum2+Number(un2[i]);
+        }
+
+        if(noOutOfRange(un1, 0, 100) && noOutOfRange(un2, 0, 100)){
+            if(sum1>sum2){
+            alert("Nilai rata-rata UN "+sekolah1+" lebih tinggi dibandingkan "+sekolah2);
+            } else if (sum1<sum2){
+                alert("Nilai rata-rata UN "+sekolah2+" lebih tinggi dibandingkan "+sekolah1);
+            } else {
+                alert("Nilai rata-rata UN "+sekolah1+" sama dengan "+sekolah2);
+            }
+        } else {
+            alert("Mohon maaf, data yang anda masukkan tidak valid");
+            return;
+        }
+
+        document.getElementById("report").style.display="block";
+        getSchool("sekolah1", 0);getSchool("sekolah2", 1);
+        getValue("avg1", (sum1/4).toFixed(2)); getValue("avg2", (sum2/4).toFixed(2));
+        getValue("selisih", (Math.abs((sum1/4)-(sum2/4))).toFixed(2));
+
+
+        }
+    </script>
+    </body>
+    </html>

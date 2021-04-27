@@ -1,0 +1,201 @@
+
+
+div {
+    color: white;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+
+.caption{
+    display: block;
+}
+
+.helper_bacaan, .helper_uraian {
+    margin-top: 15pt;
+}
+
+.penyebut_bacaan, .penyebut_uraian, .pembilang_bacaan, .pembilang_uraian {
+    max-width: 100pt;
+    margin-left: 10pt;
+}
+
+.label-helper {
+    margin-left: 5pt;
+    font-size: 10pt;
+}
+
+
+h1 {
+    font-size : 30pt;
+    margin-left: 10pt;
+    margin-top: 10pt;
+}
+
+
+.split {
+  height: 60%;
+  width: 50%;
+  top: 60;
+  bottom: 50;
+  overflow-x: hidden;
+  padding-top: 20px;
+  position: fixed;
+}
+
+body {
+    background-color: black;
+}
+
+.primary {
+    justify-content: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40pt;
+}
+
+.head {
+    font-size: 15pt;
+}
+
+.grade {
+    color : white;
+    font-size: 18pt;
+}
+
+.number {
+    color : red;
+    font-size: 24pt;
+}
+
+
+.avg {
+    color : red;
+    font-size: 24pt;
+}
+
+#selisih {
+    color : green;
+    font-size: 24pt;
+}
+
+.secondary {
+    color : white;
+}
+
+.main_info {
+    font-size: 20pt;
+    font-weight: 400;
+}
+
+.info {
+    font-size: 15pt;
+}
+
+
+
+.bonus {
+    font-size: 35pt;
+}
+
+.floor, .ceiling {
+    font-size: 30pt;
+}
+
+.onepoint, .vthree {
+    font-size: 25pt;
+}
+
+#twopoint {
+    font-size: 20pt;
+}
+
+#threepoint {
+    font-size : 18pt;
+}
+
+.petunjuk {
+    font-size: 8pt;
+}
+
+.judul_petunjuk {
+    font-size: 10pt;
+}
+
+
+.disclaimer {
+    font-size: 8pt;
+}
+.four, .onefour, .grade, .grade2, .onefourgrade{
+    font-size: 15pt;
+}
+
+ket {
+    color : white;
+    font-size: 10pt;
+    margin-top: 0pt;
+}
+
+.second {
+    font-size: 20pt;
+    font-weight: 400;
+}
+
+header .left {
+    left: 0;
+}
+
+.frame {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+header .right {
+    right: 0;
+}
+
+center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.btn {
+    padding-top: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+
+footer h6 danger {
+    text-align:left;
+    font-weight: bold;
+    color: red;
+}
+
+footer {
+    margin-bottom: 0pt;
+}
+
+
+footer h6:not(danger) {
+    color : white;
+    text-align: center;
+}
+
+.sekolah a, .kuliah a {
+    overflow: hidden;
+}

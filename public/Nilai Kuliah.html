@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--Bootstrap Utama-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!--JQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Bootstrap JS-->
+<script src="../src/bootstrap.min.js"></script>
+<!--Font Tambahan-->
+<!--<link href="https//db.onlinewebfonts.com/c/a97dc52b4b2059e5f04907cb7492af0b?family=Handel+Gothic" rel="stylesheet" type="text/css"/>-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<!--CSS Tambahan-->
+<link rel="stylesheet" href="../css/Naelufa Framework.css">
+</head>
+<body class="bg-dark">
+  <div id="header"></div>
+    <!--Program Utama untuk Membandingkan nilai ujian-->
+    <div class="ml-2">
+      <h1 class="ml-3 pt-2"> Hitung Nilai Akhir Kuliah</h1>
+      <!--Program Utama-->
+      <div class="row ml-1">
+        <div class="col-8 d-col-sm justify-content-left">
+          <!--Tugas-->
+            <div id="tugas">
+              <p id="text_tugas" class="head" hidden>Nilai Tugas : </p>
+              <div class="form-inline" id="bobot_total_tugas" hidden>
+                <label for="input_bobot_tugas" min="1" class="mr-sm-2">Bobot Total : </label>
+                <input type="number" value="" id="input_bobot_tugas" class="form-control input-sm mr-sm-2" name="tugas">
+              </div>
+                <div id="info_tugas" class="mt-2"></div>
+                <button type="button" id="sub_tugas" class="mt-2 btn btn-light" hidden> Kurangi Tugas</button>
+                <!--<button type="button" id="add_tugas" class="btn btn-secondary mt-2"
+                onclick ="addTask()">Tambah Tugas</button>-->
+                <button type="button" id="add_tugas" class="btn btn-secondary mt-2">Tambah Tugas</button>
+            </div>
+            <!--End Tugas-->
+
+          <!--UTS-->
+          <div id="uts" class="d-block mt-2">
+            <!--Petunjuk Penggunaan-->
+          <div>
+            <b class="judul_petunjuk">Petunjuk perhitungan nilai UTS : </b>
+            <p class="petunjuk">1. Jika ada UTS, anda dapat mengeklik "Tambah soal" sebanyak jumlah soal dan memberikan nilai untuk setiap soal</p>
+            <p class="petunjuk">2. "Nilai maksimum" hanya diisi apabila total skor untuk soal tersebut tidak sama dengan 100, 
+              <br>akan tetapi jika diisi '100' tidak akan menyebabkan error. </p>
+            <p class="petunjuk">3. Penghitungan UTS dengan format penilaian total dapat dilakukan dengan menggunakan menu "Nilai Tugas"<br>
+            dan hasilnya di-copas ke kolom "Nilai Soal" pada "Nomor 1" UTS dengan "Bobot Soal" sesuai Bobot UTS dan <br>
+            "Nilai Maksimum" boleh dikosongkan. </p>
+          </div>
+          <!--End Petunjuk Penggunaan-->
+            <p id="text_uts" class="head">Nilai UTS : </p>
+            <div class="form-inline" id="bobot_total_uts" hidden>
+              <label for="input_bobot_uts" min="1" class="mr-sm-2">Bobot Total : </label>
+              <input type="number" value="" id="input_bobot_uts" class="form-control input-sm mr-sm-2" name = "uts">
+            </div>
+            <div id="info_uts"></div>
+            <button type="button" id="sub_uts" class="btn btn-light" hidden> 
+              Kurangi Soal</button>
+            <button type="button" id="add_uts" class="btn btn-secondary mt-2" name="uts">Tambah Soal</button>
+          </div>
+          <!--End UTS-->
+
+          <!--UAS-->
+          
+          <div id="uas" class="d-block mt-2">
+            <!--Petunjuk Penggunaan-->
+          <div>
+            <b class="judul_petunjuk">Petunjuk perhitungan nilai UAS : </b>
+            <ol class="petunjuk">
+              <li>Jika ada UAS, anda dapat mengeklik "Tambah soal" sebanyak jumlah soal dan memberikan nilai untuk setiap soal</li>
+              <li>"Nilai maksimum" hanya diisi apabila total skor untuk soal tersebut tidak sama dengan 100, 
+                <br>akan tetapi jika diisi '100' tidak akan menyebabkan error. </li>
+              <li>Penghitungan UAS dengan format penilaian total dapat dilakukan dengan menggunakan menu "Nilai Tugas"<br>
+                dan hasilnya di-copas ke kolom "Nilai Soal" pada "Nomor 1" UAS dengan "Bobot Soal" sesuai Bobot UAS dan <br>
+                "Nilai Maksimum" boleh dikosongkan. </li>
+            </ol>
+            
+          </div>
+          <!--End Petunjuk Penggunaan-->
+            <p id="text_uas" class="head">Nilai UAS : <br></p>
+            <div class="form-inline" id="bobot_total_uas" hidden>
+              <label for="input_bobot_uas" min="1" class="mr-sm-2">Bobot Total : </label>
+              <input type="number" value="" id="input_bobot_uas" class="form-control input-sm mr-sm-2" name = "uas">
+            </div>
+            <div id="info_uas"></div>
+            <button type="button" id="sub_uas" class="mt-2 btn btn-light" hidden> 
+              Kurangi Soal</button>
+            <button type="button" id="add_uas" class="btn btn-secondary mt-2" name="uas">Tambah Soal</button>
+            <br>
+          </div>
+          <!--End UAS-->
+
+          <!--Aspek Tambahan-->
+          <div class="form-check-inline mt-2">
+            <label for="enable_addition" class="form-check-label">
+              <input type="checkbox" class="form-check-input" id="enable_addition" >
+              Perhitungkan aspek tambahan
+            </label>
+          </div>
+          <!--End Aspek Tambahan-->
+
+          <!--Olah Aspek Tambahan-->
+          <div id="aspek_tambahan" class="d-block mt-2">
+            <p id="text_addit" class="head">Aspek Tambahan : <br></p>
+            <div id="info_addit"><!--Data Aspek Tambahan--></div>
+              <!--Tombol untuk menambah aspek tambahan-->
+              <div class="form-group row">
+                <button type="button" id="add_addit" class="btn btn-secondary aspek col-sm-6" disabled>
+                  Tambah Aspek</button>
+                <div id="confirm" class="col-sm-4" style="display:none;">
+                  <input type="text" class="form-control" id="input_aspek" value="">
+                </div>
+                <button type="button" id="add_element" hidden></button>
+              </div>
+          </div>
+           <!--Olah Aspek Tambahan-->
+
+           <!--Ijinkan nilai lebih dari 100-->
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="enable_more">
+            <label class="form-check-label" for="defaultCheck1">
+              Ijinkan nilai akhir lebih dari 100
+            </label>
+          </div>
+           <!--End ijinkan nilai lebih dari 100-->
+
+          <!--Berikan Nilai-->
+          <form>
+            <!--Petunjuk Penggunaan-->
+            <div>
+              <b class="judul_petunjuk">Petunjuk penggunaan range nilai : </b>
+              <ol class="petunjuk"><li>Jika tidak diisi, maka nilai A akan diatur pada 80 dan 
+                untuk setiap rentang memiliki interval 5 
+                <br>(sesuai standar Ilmu Komputer UGM)</li>
+                <li>Anda dapat mengatur rentang nilai sebagai berikut :
+                  <ul class="petunjuk">
+                    <li>Range nilai A : berisi rentang untuk nilai A, A-, dan A/B</li>
+                    <li>Range nilai B : berisi rentang untuk nilai B+, B, B-, dan B/C</li>
+                    <li>Range nilai C : berisi rentang untuk nilai C+, C, C-, dan C/D</li>
+                    <li>Range nilai D : berisi rentang untuk nilai D+, dan D</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <!--End Petunjuk Penggunaan-->
+            <div class="form-group row">
+              <label for="a-minimum" class="col-sm-3 col-form-label">Nilai A minimal</label>
+              <div class="col-sm-3">
+                <input type="number" class="form-control" id="a-minimum">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Range kelompok A</label>
+              <div class="col-sm-3">
+                <input type="number" class="form-control range">
+              </div>
+            </div>
+          </form>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Range kelompok B</label>
+            <div class="col-sm-3">
+              <input type="number" class="form-control range">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label  class="col-sm-3 col-form-label">Range kelompok C</label>
+            <div class="col-sm-3">
+              <input type="number" class="form-control range">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Range kelompok D</label>
+            <div class="col-sm-3">
+              <input type="number" class="form-control range">
+            </div>
+          </div>
+          <!--End Berikan Nilai-->
+        </div>
+        <!--End input nilai-->
+
+        <!--Tempat Pengolahan Skor-->
+        <div class="col-4 col-sm justify-content-start">
+          <div id="ket_nilai" style="display:none">
+            <p id="ket_total">Nilai yang diperoleh : <br></p>
+
+
+            <!--Keterangan Nilai-->
+            <div class="d-flex">
+              <p id="nilai_utama" class="primary number"></p>
+              <p id="nilai_huruf" class="primary grade ml-2 mt-1"></p>
+            </div>
+            <div class="d-inline-flex" id="div_tugas" hidden>
+              <p>Nilai elemen tugas : </p><p id="elemen_tugas" class="secondary ml-2"></p>
+              <p class="ml-2">(Bobot : </p><p id="bobot_elemen_tugas" class="secondary ml-2">)</p>
+            </div>
+            <div class="d-flex" id="div_uts" hidden>
+              <p>Nilai elemen UTS : </p><p id="elemen_uts" class="secondary ml-2"></p><br>
+              <p class='ml-2'>(Bobot : </p><p id="bobot_elemen_uts" class="secondary ml-2">)</p>
+            </div>
+            <div class="d-flex" id="div_uas" hidden>
+              <p>Nilai elemen UAS : </p><p id="elemen_uas" class="secondary ml-2"></p>
+              <p class='ml-2'>(Bobot : </p><p id="bobot_elemen_uas" class="secondary ml-2">)</p>
+            </div>
+            <div class="d-flex" id="div_tambahan" hidden>
+              <p>Nilai elemen tambahan : </p><p id="elemen_tambahan" class="secondary ml-2"></p>
+              <p class='ml-2'>(Bobot : </p><p id="bobot_elemen_tambahan" class="secondary ml-2">)</p>
+            </div>
+          </div>
+          <!--End keterangan nilai-->
+        </div>
+        </div>
+        <!--End Pengolahan Skor-->
+
+
+        <!--Button Hitung Skor-->
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-light mb-5 mt-4" onclick=countScore()>Hitung</button>
+        </div>
+        <!--End Hitung Skor-->
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script src="../src/general_alert.js"></script>
+    <script src="../src/general_report.js"></script>
+    <script src="../src/olahNilaiAkhir.js"></script>
+    <script src="../src/jquery_implementation.js"></script>
+    </body>
+    </html>

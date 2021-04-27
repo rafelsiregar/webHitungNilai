@@ -1,0 +1,27 @@
+{
+  "name": "simulasihitungnilai",
+  "version": "1.0.0",
+  "description": "App for count the score",
+  "main": "index.js",
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "craco": "0.0.3",
+    "firebase": "^8.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "simulasihitungnilai"
+  },
+  "keywords": [
+    "hitungnilai"
+  ],
+  "author": "rafelsiregar",
+  "license": "ISC"
+}

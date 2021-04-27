@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--Bootstrap Utama-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!--JQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Bootstrap JS-->
+<script src="../src/bootstrap.min.js"></script>
+<!--Font Tambahan-->
+<!--<link href="https//db.onlinewebfonts.com/c/a97dc52b4b2059e5f04907cb7492af0b?family=Handel+Gothic" rel="stylesheet" type="text/css"/>-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<!--CSS Tambahan-->
+<link rel="stylesheet" href="../css/Naelufa Framework.css">
+</head>
+<body class="bg-dark">
+  <div id="header"></div>
+    <!--Program Utama untuk Membandingkan nilai ujian-->
+    <div class="ml-2">
+      <h1 class="ml-3 pt-2"> Hitung Nilai Untuk Lebih Dari Satu Kasus</h1>
+      <!--Program Utama-->
+      <div class="row ml-1 container">
+        <div class="col-sm-8 d-block justify-content-start">
+            <div class="form-inline" id="jumlah_soal">
+                <label for="input_bobot_tugas" min="1" class="mr-sm-2">Jumlah Soal : </label>
+                <input type="number" value="" id="input_jumlah_soal" class="form-control input-sm mr-sm-2" name="soal">
+              </div>
+            <!--Data state-->
+            <div id="state_list" class="d-block mt-2">
+                <p id="text_state" class="head">Daftar State : <br></p>
+                <div id="info_state"><!--Informasi State--></div>
+                  <!--Tombol untuk menambah state-->
+                  <div class="form-group row">
+                    <button type="button" id="add_state" class="btn btn-secondary aspek col-sm-6">
+                      Tambah State</button>
+                    <div id="confirm" class="col-sm-4" style="display:none;">
+                      <input type="text" class="form-control" id="input_state" value="">
+                    </div>
+                    <button type="button" id="add_element" hidden></button>
+                  </div>
+              </div>
+              <!--End tombol state-->
+            </div>
+            <!--End data state-->
+        
+        <!--Tempat Pengolahan Skor-->
+        <div class="col-sm-4 justify-content-start">
+          <div id="ket_nilai" style="display:none">
+            <p id="ket_total">Nilai yang diperoleh : <br></p>
+            <!--Keterangan Nilai-->
+            <div class="d-flex">
+              <p id="nilai_utama" class="primary number"></p>
+              <p id="nilai_huruf" class="primary grade ml-2 mt-1"></p>
+            </div>
+            <div class="d-inline-flex" id="div_state" hidden>
+              <p>Nilai dalam skala 0-100 : </p><output id="elemen_state" class="secondary ml-2"></output>
+            </div>
+            <div id="another"><!--Data state--></div>
+          </div>
+        </div>
+        </div>
+    </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-light mb-5 mt-4" onclick="count()">Hitung</button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script src="../src/general_alert.js"></script>
+    <script src="../src/olahKondisi.js"></script>
+    <script src="../src/jquery_implementation.js"></script>
+    </body>
+    </html>
